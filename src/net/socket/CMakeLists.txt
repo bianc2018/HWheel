@@ -22,7 +22,6 @@ add_executable(echo_server "demo/echo_server.cpp" socket.h socket.cpp )
 add_executable(sock_send "demo/sock_send.cpp" socket.h socket.cpp )
 
 IF (CMAKE_SYSTEM_NAME MATCHES "Linux")
-	target_link_libraries(example pthread)
 	target_link_libraries(echo_server pthread)
 	target_link_libraries(echo_server pthread)
 ENDIF (CMAKE_SYSTEM_NAME MATCHES "Linux")
