@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
     unsigned short port = 80;
     if(argc>=2)
         port=::atoi(argv[1]);
-
+    printf("bind port=%d\n", port);
     Socket s;
     int ret=s.bind(NULL, port);
     if (ret != 0)

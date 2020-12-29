@@ -104,28 +104,28 @@ Socket::Socket(int af, int type, int protocol)
 	sock_ = socket(af, type, protocol);
 }
 
-Socket::Socket(Socket& s):sock_(s.sock_)
-{
-	s.sock_ = INVALID_SOCKET;
-}
-
-Socket::Socket(Socket&& s):sock_(s.sock_)
-{
-	s.sock_ = INVALID_SOCKET;
-}
+//Socket::Socket(Socket& s):sock_(s.sock_)
+//{
+//	s.sock_ = INVALID_SOCKET;
+//}
+//
+//Socket::Socket(Socket&& s):sock_(s.sock_)
+//{
+//	s.sock_ = INVALID_SOCKET;
+//}
 
 Socket::~Socket()
 {
-	close();
-	try_uninit();
+	//close();
+	//try_uninit();
 }
 
-void Socket::swap(Socket& s)
-{
-	SOCKET sock = s.sock_;
-	s.sock_ = sock_;
-	sock_ = sock;
-}
+//void Socket::swap(Socket& s)
+//{
+//	SOCKET sock = s.sock_;
+//	s.sock_ = sock_;
+//	sock_ = sock;
+//}
 
 
 SockRet Socket::connect(const char* ipaddr, unsigned short port)

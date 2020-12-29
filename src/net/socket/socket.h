@@ -78,20 +78,20 @@ public:
     Socket(SockType type);
     Socket(int af, int type, int protocol);
 
-    //参数为左值引用的深拷贝构造函数，转移堆内存资源所有权，改变 source.ptr_ 的值
-    Socket(Socket& s);
-
-    //移动构造函数，与参数为左值引用的深拷贝构造函数基本一样
-    Socket(Socket&& source);
-
-    ~Socket();
-
-    void swap(Socket& s);
-private:
-    //禁止拷贝
-    //Socket() {};
-    //Socket(const Socket&) {};
-    Socket& operator=(const Socket&) {};
+//    //参数为左值引用的深拷贝构造函数，转移堆内存资源所有权，改变 source.ptr_ 的值
+//    Socket(Socket& s);
+//
+//    //移动构造函数，与参数为左值引用的深拷贝构造函数基本一样
+//    Socket(Socket&& source);
+//
+     ~Socket();
+//
+//    void swap(Socket& s);
+//private:
+//    //禁止拷贝
+//    //Socket() {};
+//    //Socket(const Socket&) {};
+//    Socket& operator=(const Socket&) {};
 public:
     //封装的函数
     SockRet connect(const char*ipaddr,unsigned short port);

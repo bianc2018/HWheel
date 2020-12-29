@@ -18,7 +18,6 @@ ENDIF (CMAKE_SYSTEM_NAME MATCHES "Linux")
 
 include_directories(.)
 
-add_executable(example "demo/example.cpp" socket.h socket.cpp )
 add_executable(echo_server "demo/echo_server.cpp" socket.h socket.cpp )
 add_executable(sock_send "demo/sock_send.cpp" socket.h socket.cpp )
 
