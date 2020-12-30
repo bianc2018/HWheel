@@ -179,7 +179,7 @@ SockRet Socket::listen(int backlog)
 
 Socket Socket::accept()
 {
-	int ret = ::accept(sock_, NULL,0);
+	SOCKET ret = ::accept(sock_, NULL,0);
 	if (ret == INVALID_SOCKET)
 	{
 		_LOG_DEBUG("accept fail ret=" << ret << ",err:" << errno);
@@ -200,7 +200,7 @@ Socket Socket::accept(char* remote_ip, unsigned int ip_len, unsigned short* remo
 #ifdef OS_LINUX
 	socklen_t addr_len = sizeof(addr);
 #endif
-	int ret = ::accept(sock_, (struct sockaddr*)&addr,&addr_len);
+	SOCKET ret = ::accept(sock_, (struct sockaddr*)&addr,&addr_len);
 	if (ret == INVALID_SOCKET)
 	{
 		_LOG_DEBUG("accept fail ret=" << ret << ",err:" << errno);
@@ -211,7 +211,7 @@ Socket Socket::accept(char* remote_ip, unsigned int ip_len, unsigned short* remo
 		char* temp = ::inet_ntoa(addr.sin_addr);
 		if (temp)
 		{
-			unsigned int temp_len = ::strlen(temp);
+			size_t temp_len = ::strlen(temp);
 			if (temp_len < ip_len)//缓存足够
 			{
 				::strcpy(remote_ip, temp);
